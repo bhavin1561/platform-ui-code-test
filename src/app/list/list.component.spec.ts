@@ -1,4 +1,4 @@
-import { ListComponent } from './list.component';
+import {ListComponent} from './list.component';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -13,7 +13,7 @@ describe('ListComponent', () => {
 
   describe('unselected providers', () => {
     it('should have an initial length of 3', () => {
-      expect(component.unselectedProviders.length).toEqual(3);
+      expect(component.unselectedProviders.length).toEqual(6);
     });
 
     it('should have an id', () => {
@@ -38,4 +38,19 @@ describe('ListComponent', () => {
       expect(component.selectedProviders.length).toEqual(0);
     });
   });
+
+  describe('Transfer from unselect to select list', () => {
+    it('Should move element from unselect to select list', () => {
+        // tslint:disable-next-line:max-line-length
+        expect(component.selectProvider(component.unselectedProviders[0])).toEqual(component.selectedProviders[component.selectedProviders.length - 1]);
+    });
+    });
+
+  describe('Transfer from select to unselect list', () => {
+    it('Should move element from select to unselect list', () => {
+      // tslint:disable-next-line:max-line-length
+      expect(component.unselectProvider(component.selectedProviders[0])).toEqual(component.unselectedProviders[component.unselectedProviders.length - 1]);
+    });
+  });
+
 });
