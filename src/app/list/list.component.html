@@ -1,4 +1,35 @@
-<div class="list-container">
-  <h2>Providers</h2>
+<h2>Providers</h2>
+<div class="flex-container">
+
+  <div class="flex-child">
+    <div>
+      <h4>Unselected List</h4>
+      <ul class="grid grid-pad">
+        <a *ngFor="let unselectedProvider of unselectedProviders" class="pop bg clickable">
+          <li (click)="selectProvider(unselectedProvider)">
+            {{unselectedProvider.name}}
+            {{unselectedProvider.address}}
+            {{unselectedProvider.phone}}
+          </li>
+        </a>
+      </ul>
+    </div>
+  </div>
+
+  <div class="flex-child clickable">
+    <div>
+      <h4>Selected List</h4>
+      <ul class="grid grid-pad">
+        <a *ngFor="let selectedProvider of selectedProviders" class="pop bg clickable">
+          <li (click)="unselectProvider(selectedProvider)">
+            {{selectedProvider.name}}
+            {{selectedProvider.address}}
+            {{selectedProvider.phone}}
+          </li>
+        </a>
+      </ul>
+    </div>
+  </div>
 
 </div>
+
